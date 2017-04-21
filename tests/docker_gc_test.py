@@ -255,9 +255,9 @@ def test_filter_images_in_use_by_id(mock_client, now):
         'Id': image,
         'Created': '2014-01-01T01:01:01Z'
     }
-    docker_gc.cleanup_images(mock_client, now, False, set())
+    docker_gc.cleanup_images(mock_client, now, None, False, set())
     assert mock_client.remove_image.mock_calls == [
-        mock.call(image=id_) for id_ in ['6', '5', '4', '3']
+        mock.call(image=id_) for id_ in ['3', '4', '5', '6']
     ]
 
 
